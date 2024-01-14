@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "title": "Stilton",
+        "description": "es un queso Turco",
+        "price": 200,
+        "code": "asd123",
+        "thumbnail": "img",
+        "stock": 10
+    }
+]
