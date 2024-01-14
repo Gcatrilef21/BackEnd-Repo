@@ -1,0 +1,20 @@
+[
+    {
+        "id": 2,
+        "title": "test",
+        "description": "es un queso Ingles",
+        "price": "free",
+        "code": "qwe123",
+        "thumbnail": "img",
+        "stock": 8
+    },
+    {
+        "id": 4,
+        "title": "Maasdam",
+        "description": "es un queso de origen suizo-holandés",
+        "price": 10990,
+        "code": "poi0981",
+        "thumbnail": "img",
+        "stock": 15
+    }
+]

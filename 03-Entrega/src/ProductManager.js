@@ -70,7 +70,7 @@ class ProductManager{
 
         //Buscar el ID previamente
         let index = products.findIndex(prod => prod.id === id)
-        console.log(index)
+
         if (index === -1) {
             console.log(`Producto con el ID ${id}no encontrado`)
             return
@@ -79,12 +79,12 @@ class ProductManager{
         // Validar que en object no manden bananas con object.value y object.key
         // Tambien se puede intentar con object.entrie()
 
-        let validateObject = Object.keys(object)
-        console
+    /*  let validateObject = Object.keys(object)
+    
         if (validateObject === undefined){
             console.error(error,'test')
             return
-        }
+        } */
         
 
         // index es el array en su posicion 
@@ -103,14 +103,14 @@ class ProductManager{
         //Buscar el ID previamente
         let deltProduct = products.findIndex(prod => prod.id === id)
         if (deltProduct === -1) {
-            console.log(`Producto con el ID ${id} no encontrado`)
+            console.log(`Producto con el ID ${id}. No encontrado!!`)
             return
         }
         // Eliminar el producto y Reescribir el JSON
         products.splice(deltProduct,1)
         fsPromesas.writeFile(await this.path, JSON.stringify(products, null, 4))
 
-        console.log(`Producto eliminado corractamente ${id}`)
+        console.log(`Producto con el ID ${id} fue eliminado corractamente `)
     }
 }
 
@@ -120,16 +120,16 @@ const produc = new ProductManager (ruta)
 const test = async() =>{
     try{
         // console.log(await produc.getProducts())
-        await produc.addProduct('feta','frances',300,'123asd','image',2)
+        // await produc.addProduct('feta','frances',300,'123asd','image',2)
         // await produc.addProduct('Shtilton','es un queso Ingles',5990,'qwe123','img',8)
         // await produc.addProduct('Camembert', 'es un queso de origen francés',7557, 'zxc321', 'img', 231 )
         // await produc.addProduct('Maasdam', 'es un queso de origen suizo-holandés',10990, 'poi0981', 'img', 15 )
         // await produc.addProduct('Brie', 'es un queso de origen frances',19990, '', 'img', 15 )    
         // console.log(await produc.getProducts())
-        //await produc.getProductByIwd(1)
-        await produc.deleteProduct(1)
-        console.log(await produc.getProducts())
-        // await produc.updateProduct(2,{title:'test',price:'free'})
+        // await produc.getProductById(1)
+        // await produc.deleteProduct(1)
+        // console.log(await produc.getProducts())
+        await produc.updateProduct(2,{title:'test',price:'free'})
         // console.log(await produc.getProducts())
     }catch{
         console.error(error.massage)
