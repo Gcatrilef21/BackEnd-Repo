@@ -1,12 +1,10 @@
-const path = require('path');
 const fs = require('fs');
 const fsPromesas = require('fs').promises;
 
-let ruta=path.join(__dirname,'..','productos','products.json') 
 
 
 class ProductManager{
-    static id = 0;
+    // static id = 0;
     constructor(pathFile){
         this.path = pathFile
     }
@@ -23,7 +21,12 @@ class ProductManager{
     // ----->  Agregar Producto 
     async addProduct(title, description, price, code, thumbnail, stock) {
         let products = await this.getProducts()
-        ProductManager.id++
+        let id = 1;
+        
+
+        if (products.length > 0) {
+            id = products[products.length - 1].id + 1;
+        }
 
         //Validar los campos solicitados
         if (!title || !description || !price || !code || !thumbnail || !stock) {
@@ -38,7 +41,7 @@ class ProductManager{
         }
 
         let newProduct = {
-            id: ProductManager.id,
+            id: id,
             title,
             description,
             price,
@@ -76,17 +79,6 @@ class ProductManager{
             return
         }
 
-        // Validar que en object no manden bananas con object.value y object.key
-        // Tambien se puede intentar con object.entrie()
-
-    /*  let validateObject = Object.keys(object)
-    
-        if (validateObject === undefined){
-            console.error(error,'test')
-            return
-        } */
-        
-
         // index es el array en su posicion 
         products[index]={
             ...products[index],
@@ -114,27 +106,4 @@ class ProductManager{
     }
 }
 
-    //Pasar este codigo al app. 
-const produc = new ProductManager (ruta)
-
-const test = async() =>{
-    try{
-        // console.log(await produc.getProducts())
-        // await produc.addProduct('feta','frances',300,'123asd','image',2)
-        // await produc.addProduct('Shtilton','es un queso Ingles',5990,'qwe123','img',8)
-        // await produc.addProduct('Camembert', 'es un queso de origen francés',7557, 'zxc321', 'img', 231 )
-        // await produc.addProduct('Maasdam', 'es un queso de origen suizo-holandés',10990, 'poi0981', 'img', 15 )
-        // await produc.addProduct('Brie', 'es un queso de origen frances',19990, '', 'img', 15 )    
-        // console.log(await produc.getProducts())
-        // await produc.getProductById(1)
-        // await produc.deleteProduct(1)
-        // console.log(await produc.getProducts())
-        await produc.updateProduct(2,{title:'test',price:'free'})
-        // console.log(await produc.getProducts())
-    }catch{
-        console.error(error.massage)
-    }
-}
-
-
-test()
+module.exports = ProductManager
