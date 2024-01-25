@@ -58,7 +58,7 @@ const env = async () =>{
 
             id = parseInt(id)
 
-            if(isNaN(id)) return res.setHeader('Content-Type', 'application/json')
+            if (isNaN(id)) return res.json({Message:'Error, ingrese un argumento id numerico'})
 
             let productId = product.find(producto => producto.id === id)
             if(!productId) return res.status(400).json({Error:`El producto con ID ${id}, no se encuentra en la BBDD`});
