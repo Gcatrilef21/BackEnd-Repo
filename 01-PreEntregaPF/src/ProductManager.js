@@ -22,7 +22,7 @@ export class ProductManager {
     }
 
     // ----->  Agregar Producto //
-    async addProduct(title, description, code,  price,thumbnail, stock) {
+    async addProduct(title, description, code, price,status=true,stock, category,thumbnail=[]) {
         let products = await this.getProducts()
         let id = 1;
         
@@ -32,7 +32,7 @@ export class ProductManager {
         }
 
         //Validar los campos solicitados
-        if (!title || !description || !price || !code || !thumbnail || !stock) {
+        if (!title || !description || !code || !price || !status || !stock || !category ) {
             return console.error('Producto no Agregado, completar todos los campos');
         }
 
@@ -47,10 +47,12 @@ export class ProductManager {
             id: id,
             title,
             description,
-            price,
             code,
-            thumbnail,
-            stock
+            price,
+            status:status,
+            stock,
+            category,
+            thumbnail
         }
         
         //Agregar el producto

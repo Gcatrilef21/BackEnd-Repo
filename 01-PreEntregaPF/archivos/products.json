@@ -102,9 +102,11 @@
         "id": 12,
         "title": "Masdam",
         "description": "Queso de origen de Países Bajo",
-        "price": 11990,
         "code": "mds392",
-        "thumbnail": 12,
-        "stock": "imagen"
+        "price": 11990,
+        "status": true,
+        "stock": 12,
+        "category": "Queso SemiBolando",
+        "thumbnail": []
     }
 ]
