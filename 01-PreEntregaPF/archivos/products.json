@@ -1,12 +1,14 @@
 [
     {
         "id": 1,
-        "title": "Shtilton",
-        "description": "es un queso Ingles",
+        "title": "Stilton",
+        "description": "Es un queso Ingles",
         "price": 5990,
         "code": "bnm321",
         "thumbnail": "img",
-        "stock": 8
+        "stock": 8,
+        "status": true,
+        "category": "Semi-Blando"
     },
     {
         "id": 2,
@@ -15,7 +17,9 @@
         "price": 300,
         "code": "123asd",
         "thumbnail": "image",
-        "stock": 2
+        "stock": 6,
+        "status": true,
+        "category": "Semi-Duro"
     },
     {
         "id": 3,
@@ -92,11 +96,13 @@
     {
         "id": 11,
         "title": "Edam",
-        "description": "s un queso originario de los Países Bajo",
-        "price": 9990,
+        "description": "Es un queso originario de los Países Bajo",
         "code": "plc093",
-        "thumbnail": 32,
-        "stock": "imagen"
+        "price": 9990,
+        "status": "true",
+        "stock": "11",
+        "category": "Blando",
+        "thumbnail": []
     },
     {
         "id": 12,

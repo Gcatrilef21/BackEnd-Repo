@@ -44,7 +44,6 @@ const env = async () => {
         });
 
         // Metodo POST 
-
         router.post('/', async (req, res) => {
 
             let prods = products
@@ -77,22 +76,33 @@ const env = async () => {
             res.status(201).json({ Message: `Nuevo Producto creado correctamente, Nombre : ${title} / Codigo :  ${code}` });
         })
 
-
         // Metodo PUT 
         router.put('/:pid', async (req, res) => {
-            // let product = products
+            let prods = products
 
             let { pid } = req.params;
             pid = parseInt(pid)
 
-            if (isNaN(pid)) return res.json({ Error: 'Ingrese un id numerico' })
+            if (isNaN(pid)) return res.json({ Error: 'El ID ingresado debe ser un ID numerico' })
 
-            // let indexProduct = product.findIndex()
+            let indexProduct = prods.findIndex(prod=>prod.id ===pid)
+            if (indexProduct ===-1){
+                res.setHeader('Content-Type', 'application/json');
+                return res.status(400).json({Error:`No existe el producto con ID ${pid} en BBDD`});
+            }
 
+            let allowedProps = ['title', 'description', 'code', 'price','stock','status', 'category',]
+            let arrivingProps = Object.keys(req.body)
+            let propsSuccess = arrivingProps.every(prop => allowedProps.includes(prop))
+            if(!propsSuccess){
+                res.setHeader('Content-Type', 'application/json');
+                return res.status(400).json({Error:`Estos son las propiedades permitidas ${allowedProps}`});
+            }
 
+            await product.updateProduct(pid,req.body)
 
             res.setHeader('Content-Type', 'application/json');
-            res.status(200).send('FUUUUAP, Acuestate');
+            res.status(202).json({Message:`Producto con el ID ${pid}, se ha actualizado correctamente`});
         })
 
     } catch (error) {

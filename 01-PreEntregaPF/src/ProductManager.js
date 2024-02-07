@@ -79,12 +79,10 @@ export class ProductManager {
 
         //Buscar el ID previamente
         let index = products.findIndex(prod => prod.id === id)
-
         if (index === -1) {
             console.log(`Producto con el ID ${id}no encontrado`)
             return
         }
-
         // index es el array en su posicion 
         products[index] = {
             ...products[index],
