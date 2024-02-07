@@ -105,6 +105,25 @@ const env = async () => {
             res.status(202).json({Message:`Producto con el ID ${pid}, se ha actualizado correctamente`});
         })
 
+        router.delete('/:pid', async (req,res)=>{
+            let prods = products
+
+            let { pid } = req.params;
+            pid = parseInt(pid)
+
+            if (isNaN(pid)) return res.json({ Error: 'El ID ingresado debe ser un ID numerico' })
+
+            let indexProduct = prods.findIndex(prod=>prod.id ===pid)
+            if (indexProduct ===-1){
+                res.setHeader('Content-Type', 'application/json');
+                return res.status(400).json({Error:`No existe el producto con ID ${pid} en BBDD`});
+            }
+            await product.deleteProduct(pid)
+            
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json({Message:`Producto con el ID ${pid}, se ha eliminado correctamente`});
+        })
+
     } catch (error) {
         console.log('Se ha encontrado el siguiente error', error.message)
     }
