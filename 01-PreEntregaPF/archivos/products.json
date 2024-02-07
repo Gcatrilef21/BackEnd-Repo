@@ -22,15 +22,6 @@
         "category": "Semi-Duro"
     },
     {
-        "id": 4,
-        "title": "Brie",
-        "description": "El queso Brie es un queso de origen francés",
-        "price": 12590,
-        "code": "mkl098",
-        "thumbnail": "img",
-        "stock": 10
-    },
-    {
         "id": 5,
         "title": "Camembert",
         "description": "El queso Camembert es un queso de origen francés",

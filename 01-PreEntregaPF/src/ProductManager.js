@@ -109,25 +109,3 @@ export class ProductManager {
         console.log(`Producto con el ID ${id} fue eliminado corractamente `)
     }
 }
-
-/* const testProduct = new ProductManager(ruta)
-
-const env = async () => {
-    try {
-        // console.log(ruta)
-        // console.log(await testProduct.getProducts())import {join} from 'path'
-        // await testProduct.addProduct({
-        //     title: 'Edam',
-        //     description: 'Queso originario de los Países Bajos',
-        //     price: 21990,
-        //     code: 'plm031',
-        //     stock: 8,
-        //     category: 'prueba',
-        //     // status: true
-        // })
-
-    } catch (error) {
-        console.log('error:', error.message)
-    }
-}
-env() */

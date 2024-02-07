@@ -119,7 +119,7 @@ const env = async () => {
                 return res.status(400).json({Error:`No existe el producto con ID ${pid} en BBDD`});
             }
             await product.deleteProduct(pid)
-            
+
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json({Message:`Producto con el ID ${pid}, se ha eliminado correctamente`});
         })
@@ -129,9 +129,3 @@ const env = async () => {
     }
 }
 env()
-
-let cofidence = true
-if (!cofidence) {
-
-
-}
