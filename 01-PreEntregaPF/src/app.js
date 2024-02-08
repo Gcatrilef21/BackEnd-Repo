@@ -1,7 +1,7 @@
 //Manejo de Modulos con ES6
 import express from 'express';
 import { router as routerUsuarios } from './routes/product.router.js';
-
+import { router as routerCarts } from './routes/carrito.router.js'
 
 const app = express();
 const PORT = 8080;
@@ -19,6 +19,7 @@ const env = async ()=>{
     try {
         
         app.use('/api/products', routerUsuarios)
+        app.use('/api/carts', routerCarts )
     
         app.get('/', (req,res)=>{
             res.setHeader('Content-Type', 'text/plain');

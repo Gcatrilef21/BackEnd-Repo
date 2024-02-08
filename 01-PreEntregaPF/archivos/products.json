@@ -3,77 +3,89 @@
         "id": 1,
         "title": "Stilton",
         "description": "Es un queso Ingles",
-        "price": 5990,
         "code": "bnm321",
-        "thumbnail": "img",
-        "stock": 8,
+        "price": 5990,
         "status": true,
-        "category": "Semi-Blando"
+        "category": "Semi-Blando",
+        "stock": 8,
+        "thumbnail":[]
     },
     {
         "id": 2,
         "title": "Feta",
         "description": "frances",
-        "price": 300,
         "code": "123asd",
-        "thumbnail": "image",
-        "stock": 6,
+        "price": 300,
         "status": true,
-        "category": "Semi-Duro"
+        "category": "Semi-Duro",
+        "stock": 6,
+        "thumbnail": []
     },
     {
         "id": 5,
         "title": "Camembert",
         "description": "El queso Camembert es un queso de origen francés",
-        "price": 18990,
         "code": "lop302",
-        "thumbnail": "img",
-        "stock": 4
+        "price": 18990,
+        "status": true,
+        "category": "Semi-Duro",
+        "stock": 4,
+        "thumbnail": []
     },
     {
         "id": 6,
         "title": "Roquefort",
         "description": "El queso Roquefort es un queso de origen francés",
-        "price": 23990,
         "code": "xic821",
-        "thumbnail": "img",
-        "stock": 9
+        "price": 23990,
+        "status": true,
+        "category": "Semi-Duro",
+        "stock": 9,
+        "thumbnail": []
     },
     {
         "id": 7,
         "title": "Tulum",
         "description": "Es un queso típico de Turquía",
-        "price": 23990,
         "code": "ehg569",
-        "thumbnail": "img",
-        "stock": 5
+        "price": 23990,
+        "status": true,
+        "category": "Blando",
+        "stock": 5,
+        "thumbnail": []
     },
     {
         "id": 8,
         "title": "Emmental",
         "description": "El queso Emmental es un queso suizo",
-        "price": 13990,
         "code": "mks521",
-        "thumbnail": "img",
-        "stock": 12
+        "price": 13990,
+        "status": true,
+        "category": "Semi-Duro",
+        "stock": 12,
+        "thumbnail": []
     },
     {
         "id": 9,
         "title": "Cheddar",
         "description": "Su nombre proviene de la región de Cheddar, en el suroeste de Inglaterra",
-        "price": 13990,
         "code": "chd892",
-        "thumbnail": "img",
-        "stock": 18
+        "price": 13990,
+        "status": true,
+        "category": "Blando",
+        "stock": 18,
+        "thumbnail": []
     },
     {
         "id": 10,
         "title": "Appenzeller",
         "description": "El queso Appenzeller es un queso suizo",
-        "price": 15990,
         "code": "apl692",
-        "thumbnail": "img",
-        "stock": 10
+        "price": 15990,
+        "status": true,
+        "stock": 10,
+        "category": "Semi-Blando",
+        "thumbnail": []
     },
     {
         "id": 11,
