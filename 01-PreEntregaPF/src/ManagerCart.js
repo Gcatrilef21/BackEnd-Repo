@@ -4,7 +4,7 @@ import { promises as fsPromises} from 'fs'
 import __dirname from './utils.js'
 import { join } from 'path'
 
-let ruta = join(__dirname,'..', 'archivos','carts.json')
+let cartRuta = join(__dirname,'..', 'archivos','carts.json')
 
 export class CartManager{
     constructor(fileCart){
@@ -26,11 +26,6 @@ export class CartManager{
             id = carts[carts.length - 1 ].id + 1;
         }
 
-        // let exist = carts.find(cart => cart.id === id)
-        // if(!exist){
-        //     return console.error(`Producto con ${id} ya existe`)
-        // }
-
         let newCart = {
             id:id,
             products 
@@ -38,13 +33,24 @@ export class CartManager{
         carts.push(newCart)
         await fsPromises.writeFile(this.path, JSON.stringify(carts, null, 4))
     }
+
+    async getCartsId(id){
+        let carts = await this.getCarts()
+        let cartId = carts.find(cart=> cart.id === id)
+        return cartId
+            ? console.log('Este es el carrito Seleccionado',cartId)
+            : console.error('Producto no encontrado')
+
+    }
 };
 
-const cart = new CartManager(ruta)
+const cart = new CartManager(cartRuta)
 
 const env = async ()=>{
     try {
-        console.log(await cart.getCarts())
+        // console.log(await cart.getCarts()) 
+        // await cart.getCartsId(1)
+
     } catch (error) {
         console.log('Mensaje de error:', error.massage)
     }
