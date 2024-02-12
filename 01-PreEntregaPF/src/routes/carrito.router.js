@@ -16,7 +16,7 @@ const cart = new CartManager(cartRuta)
 const env = async ()=>{
     try {
         let carts = await cart.getCarts()
-        //  Metodo crea carritos
+        //  Metodo Post para crear carritos
         router.post('/', async (req,res)=>{
 
             await cart.addCarts()
@@ -25,6 +25,7 @@ const env = async ()=>{
             res.status(201).json('Se ha creado un nuevo Carrito');
         });
 
+        //Metodo Get para Buscar los carritos
         router.get('/:cid', async (req,res)=>{
             let cart = carts
             let { cid } = req.params
@@ -41,9 +42,24 @@ const env = async ()=>{
                 return res.status(400).json({Error: `El Carrito con ID ${cid}, no existe en BBDD`});
             }
             res.setHeader('Content-Type', 'application/json');
-            res.status(200).json({Message: `Su carrito actual`, cartId});
+            res.status(200).json({Message: `Su carrito actual`, cartId})
         })  
         
+        router.post('/:cid/products/pid', (req,res)=>{
+            let {cid} = req.params
+            let {pid} = req.params
+
+            cid = parseInt(cid)
+            pid = parseInt(pid)
+            if (isNaN(cid) || isNaN(pid)){
+                res.setHeader('Content-Type', 'application/json');
+                return res.status(400).json({Error:'Ingrese un ID de carrito y producto numerico'});
+            }
+        
+        
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json('FUUUUAP, Acuestate');
+        })
     } catch (error) {
         console.log('Se ha encontrado el siguiente error', error.message)
     }

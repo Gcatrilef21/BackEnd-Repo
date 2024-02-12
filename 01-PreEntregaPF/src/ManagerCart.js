@@ -3,8 +3,12 @@ import fs from 'fs'
 import { promises as fsPromises} from 'fs'
 import __dirname from './utils.js'
 import { join } from 'path'
+import { ProductManager } from './ProductManager.js'
 
 let cartRuta = join(__dirname,'..', 'archivos','carts.json')
+let ruta = join(__dirname, '..', 'archivos', 'products.json')
+
+const prodManag = new ProductManager (ruta)
 
 export class CartManager{
     constructor(fileCart){
@@ -40,6 +44,18 @@ export class CartManager{
         return cartId
             ? console.log('Este es el carrito Seleccionado',cartId)
             : console.error('Producto no encontrado')
+    }
+
+    async addProductToCart(cid, pid){
+        let carts = await this.getCarts()
+        let product = prodManag.getProducts()
+
+        console.log(carts)
+
+
+
+
+
 
     }
 };
@@ -48,7 +64,7 @@ const cart = new CartManager(cartRuta)
 
 const env = async ()=>{
     try {
-        // console.log(await cart.getCarts()) 
+        console.log(await cart.getCarts()) 
         // await cart.getCartsId(1)
 
     } catch (error) {
